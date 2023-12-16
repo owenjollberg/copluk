@@ -1,0 +1,98 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+// Birinci soru
+
+int main() 
+{
+int i,toplam=0;
+for(i=1;i<1000;i++)
+{
+	if(i%5==0 || i%3==0 )
+	{
+		printf("%d\n",i);
+		toplam=toplam+i;
+	}
+}
+printf("1 ile 10 arasindaki 3 veya 5 e bolunebilenlerin toplami %d dir.",toplam);
+return 0;
+}
+
+
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+//ikinci sorunun 1.cevabi
+
+int main() {
+    int fibo[2] = {1, 2};
+    int sinir = 4000000;
+    int yeniterim, toplam = 0;
+
+    while (fibo[1] < sinir) {
+        if (fibo[1] % 2 == 0) {
+            toplam += fibo[1];
+        }
+
+        yeniterim = fibo[0] + fibo[1];
+        fibo[0] = fibo[1];
+        fibo[1] = yeniterim;
+    }
+
+    printf("Toplam değer: %d\n", toplam);
+
+    return 0;
+}
+
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+// ikinci sorunun 2.alternatif cevabi
+
+int main() {
+    int f1 = 1, f2 = 2, toplam = 0, sinir = 4000000, yenieleman;
+
+    while (f2 < sinir) {
+        if (f2 % 2 == 0) {
+            toplam += f2;
+        }
+
+        yenieleman = f1 + f2;
+        f1 = f2;
+        f2 = yenieleman;
+    }
+
+    printf("Toplam değer: %d\n", toplam);
+
+    return 0;
+}
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+//3.sorunun cevabi
+
+int main() 
+{
+int sayi,i;
+printf("bir sayi giriniz\n");
+scanf("%d",&sayi);
+for(i=2;i<=sayi;i++)
+{
+if(sayi%i==0)	
+{
+printf("asal carpanlarindan biri %d dir.\n",i);
+sayi/=i;	
+}
+
+}
+printf("en buyuk asal carpani ise %d dir.",i-1);
+
+
+return 0;
+}
