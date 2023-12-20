@@ -96,3 +96,44 @@ printf("en buyuk asal carpani ise %d dir.",i-1);
 
 return 0;
 }
+
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+// zort...
+int main() 
+{
+srand(time(NULL));
+int rasgele=rand()%6+1,secilensayi,sne=0,digeri=0,oynanmasayisi=0;
+do {
+printf("heyecanla silahi aldin,tetigi cek.(1-6 arasinda(dahil) bir sayi yaz.)\n");
+scanf("%d",&secilensayi);
+if(secilensayi>6 || secilensayi<1)
+{
+	printf("maytap mi geciyon?,tekrar baslioz.");
+}
+else
+{
+printf("ballisin,hayatta kaldin.");
+}
+}while(secilensayi>6 || secilensayi<1);
+do
+{
+printf("silahi tekrar eline aldin,tetigi cek.(1-6 arasinda(dahil) bir sayi yaz.)\n");
+scanf("%d",&secilensayi);
+if(secilensayi==rasgele)
+{
+printf("oldun kardes.");
+digeri++;
+}
+else
+{
+printf("yasion allama. ");
+sne++;
+}
+oynanmasayisi++;
+}while(secilensayi==rasgele || secilensayi!=rasgele);
+return 0;
+}
