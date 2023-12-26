@@ -1,1 +1,146 @@
+#include <stdio.h>
+#include <stdlib.h>
 
+// rus köylü metodu
+int main() 
+{
+int s1,s2,i,toplam=0;
+printf("iki adet sayi giriniz\n");
+scanf("%d %d",&s1,&s2);
+if(s1%2!=0)
+{
+	toplam=toplam+s2; 
+}
+for(i=0;s1>1;i++)
+{
+s1=s1/2;
+s2=s2*2;
+if(s1%2!=0)
+{
+toplam=toplam+s2;
+}
+
+printf("%d %d\n",s1,s2);
+
+}
+printf("islemin sonucu %d dir.",toplam);
+
+return 0;
+}
+
+
+
+
+
+
+
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() 
+{
+int zaryuzu,z1=0,z2=0,z3=0,z4=0,z5=0,z6=0,zaratis=0,bld,ild,uld,dld,beld,ald;
+do{	
+srand(time(NULL));
+int gelenzar=rand()%6+1;
+printf("zari firlattin ve %d geldi.\n",gelenzar);
+printf("gelen zari gir.\n");
+scanf("%d",&zaryuzu);
+if(zaryuzu==1)
+{
+	z1++;
+	if(z1%2==0)
+	{
+		printf("1.lamba kapali.");
+		bld=0;
+	}
+	else
+	{
+		printf("1.lamba acik.");
+		bld=1;
+	}
+	zaratis++;
+	
+}
+else if(zaryuzu==2)
+{
+	z2++;
+	if(z2%2==0)
+	{
+		printf("2.lamba kapali.");
+		ild=0;
+	}
+	else
+	{
+		printf("2.lamba acik.");
+		ild=1;
+	}
+	zaratis++;
+	
+}
+else if(zaryuzu==3)
+{
+	z3++;
+	if(z3%2==0)
+	{
+		printf("3.lamba kapali.");
+		uld=0;
+	}
+	else
+	{
+		printf("3.lamba acik.");
+		uld=1;
+	}
+	zaratis++;
+}
+else if(zaryuzu==4)
+{
+	z4++;
+	if(z4%2==0)
+	{
+		printf("4.lamba kapali.");
+		dld=0;
+	}
+	else
+	{
+		printf("4.lamba acik.");
+		dld=1;
+	}
+	zaratis++;
+}
+else if(zaryuzu==5)
+{
+	z5++;
+	if(z5%2==0)
+	{
+		printf("5.lamba kapali.");
+		beld=0;
+	}
+	else
+	{
+		printf("5.lamba acik.");
+		beld=1;
+	}	
+	zaratis++;
+}
+else
+{
+	z6++;
+	if(z6%2==0)
+	{
+		printf("6.lamba kapali.");
+		ald=0;
+	}
+	else
+	{
+		printf("6.lamba acik.");
+		ald=1;
+	}
+	zaratis++;
+}
+}while(bld=1,ild=1,uld=1,dld=1,beld=1,ald=1);
+return 0;
+}
