@@ -1,74 +1,97 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
-/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+/* dongu-if else-while,sonsuzdongu(menu secimi varsa)-dizi,matris,fonksiyon*/
 
 int main() 
 {
-int tcno,i,randsaatler[4][1];
-char annead[16],babaad[16],isim[16],soyisim[16];
-double randsaat=9.00;
+int i,v;
+long long tcno;
+char annead[16],babaad[16],isim[16],soyisim[16],hizmet;
+double randsaat,saatler[4][1];
+
 for(i=0;i<4;i++)
 {
 
-printf("*X Konsoloslugu Randevu Sistemine Hosgeldiniz*\n\n");
+	
+printf("****X Konsoloslugu Randevu Sistemine Hosgeldiniz****\n\n");
+
 printf("Kimlik numaranizi giriniz\n");
-scanf("%d",&tcno);
-getchar();
+scanf("%lld",&tcno);
+getchar();                                       //newline karakterini temizlemesi icin.
+
 printf("Isminizi giriniz\n");
-fgets(isim,sizeof(isim),stdin);
+fgets(isim, sizeof(isim), stdin);
+
 printf("Soyisminizi giriniz\n");
-fgets(soyisim,sizeof(soyisim),stdin);
+fgets(soyisim, sizeof(soyisim), stdin);
+
 printf("Anne adinizi giriniz\n");
-fgets(annead,sizeof(annead),stdin);
+fgets(annead, sizeof(annead), stdin);
+
 printf("Baba adinizi giriniz\n");
-fgets(babaad,sizeof(babaad),stdin);
-for(randsaat;randsaat<9.60;randsaat+=0.15)
+fgets(babaad, sizeof(babaad), stdin);
+
+for(randsaat=9.00;randsaat<9.60;randsaat+=0.15)
 {
 	printf("Uygun randevu saati: %.2lf\n",randsaat);
-}
-randsaat=randsaat+0.40;
-while(randsaat>9.60 && randsaat<10.60)
-{
-	printf("Uygun randevu saati: %.2lf\n",randsaat);
-	randsaat+=0.15;
 }
 
-printf("8 Randevu saatinden secmek istediginizi yaziniz\n");
+
+
+printf("4 Randevu saatinden secmek istediginizi yaziniz\n");
 scanf(" %lf", &randsaat);
-randsaatler[i][0]=randsaat;
+saatler[i][0]=randsaat;
 
-if(randsaat==9.00)
-printf("Randevunuz saat %.2lf olarak ayarlanmistir.\n",randsaat);
-else if(randsaat==9.15)
-printf("Randevunuz saat %.2lf olarak ayarlanmistir.\n",randsaat);
-else if(randsaat==9.30)
-printf("Randevunuz saat %.2lf olarak ayarlanmistir.\n",randsaat);
-else if(randsaat==09.45)
-printf("Randevunuz saat %.2lf olarak ayarlanmistir.\n",randsaat);
-else if(randsaat==10.00)
-printf("Randevunuz saat %.2lf olarak ayarlanmistir.\n",randsaat);
-else if(randsaat==10.15)
-printf("Randevunuz saat %.2lf olarak ayarlanmistir.\n",randsaat);
-else if(randsaat==10.30)
-printf("Randevunuz saat %.2lf olarak ayarlanmistir.\n",randsaat);
-else if(randsaat==10.45)
-printf("Randevunuz saat %.2lf olarak ayarlanmistir.\n",randsaat);
-else 
-printf("Uygun randevu saati girmediniz.");
+do
+{
+	
+printf("Vize Basvurusu icin V,Pasaport kaybi icin P harfini giriniz.\n");
+scanf(" %c",&hizmet);
+
+switch(hizmet)
+{
+ case 'V':
+ {
+ printf("Pasaport,biometrik fotograf getirmeyi ve vize ucretini yatirmayi unutmayiniz.\n\n");
+	break;
+ }
+ 
+ case 'P':
+ {
+ 	printf("Bulundugunuz bolgedeki yerel polise hemen bildirimde bulununuz,raporunu cikartiniz.\n\n");
+	break;
+ }
+ 
+ default: printf("Gecerli bir harf giriniz.\n");
+	 
+}
+
+}while(hizmet!='V'&& hizmet!='P');
+
 
 isim[strcspn(isim, "\n")] = '\0';
-soyisim[strcspn(soyisim, "\n")] = '\0';
+soyisim[strcspn(soyisim, "\n")] = '\0';       // fgets \n dahil eder,satır sonunu tespit eder,yerine null karakterini koyar.
 annead[strcspn(annead, "\n")] = '\0';
 babaad[strcspn(babaad, "\n")] = '\0';
 
-printf("*X Konsoloslugu Randevu Sistemi ***\n\n");
-printf("Tc Kimlik Numaraniz %d\n",tcno);
+
+printf("****X Konsoloslugu Randevu Sistemi ****\n\n");
+
+printf("Tc Kimlik Numaraniz %lld\n",tcno);
 printf("Ad-Soyadiniz %s %s\n",isim,soyisim);
 printf("Anne-baba adiniz %s %s\n",annead,babaad);
+printf("Randevunuz saat %.2lf olarak ayarlanmistir.\n",randsaat);
+printf("Hizmet tipi : %c\n\n",hizmet);
 
 }
-printf("4 kisinin secmis oldugu saatler:\n %.2lf\n %.2lf\n %.2lf\n %.2lf",randsaatler[0][0],randsaatler[1][0],randsaatler[2][0],randsaatler[3][0]);
+
+printf("4 musterinin secmis oldugu saatler:\n\n");
+for(v=0;v<4;v++)
+{
+printf("%.2lf\n",saatler[v][0]);
+}
 
 	return 0;
 }
