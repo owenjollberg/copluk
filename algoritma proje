@@ -13,7 +13,6 @@ double randsaat,saatler[4][1];
 
 for(i=0;i<4;i++)
 {
-
 	
 printf("****X Konsoloslugu Randevu Sistemine Hosgeldiniz****\n\n");
 
@@ -22,16 +21,16 @@ scanf("%lld",&tcno);
 getchar();                                       //newline karakterini temizlemesi icin.
 
 printf("Isminizi giriniz\n");
-fgets(isim, sizeof(isim), stdin);
+gets(isim);
 
 printf("Soyisminizi giriniz\n");
-fgets(soyisim, sizeof(soyisim), stdin);
+gets(soyisim);
 
 printf("Anne adinizi giriniz\n");
-fgets(annead, sizeof(annead), stdin);
+gets(annead);
 
 printf("Baba adinizi giriniz\n");
-fgets(babaad, sizeof(babaad), stdin);
+gets(babaad);
 
 for(randsaat=9.00;randsaat<9.60;randsaat+=0.15)
 {
@@ -39,10 +38,10 @@ for(randsaat=9.00;randsaat<9.60;randsaat+=0.15)
 }
 
 
-
 printf("4 Randevu saatinden secmek istediginizi yaziniz\n");
 scanf(" %lf", &randsaat);
 saatler[i][0]=randsaat;
+
 
 do
 {
@@ -69,12 +68,6 @@ switch(hizmet)
 }
 
 }while(hizmet!='V'&& hizmet!='P');
-
-
-isim[strcspn(isim, "\n")] = '\0';
-soyisim[strcspn(soyisim, "\n")] = '\0';       // fgets \n dahil eder,satır sonunu tespit eder,yerine null karakterini koyar.
-annead[strcspn(annead, "\n")] = '\0';
-babaad[strcspn(babaad, "\n")] = '\0';
 
 
 printf("****X Konsoloslugu Randevu Sistemi ****\n\n");
