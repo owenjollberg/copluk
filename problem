@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <stdlib.h>
+ 
+int main() 
+{
+char cumle[100],pozisyonlar[100];
+char harf;
+int i=0,sayac=0,sayac2=0,j=0;
+
+printf("Cumleyi giriniz\n");
+gets(cumle);
+
+printf("Aramak istediginiz harfi yaziniz\n");
+scanf(" %c",&harf);
+
+while(cumle[i])
+{
+	sayac2++;
+	
+	if(cumle[i]==(int)harf)
+	{
+		
+		sayac++;
+		pozisyonlar[j]=sayac2;
+		j++;
+	}
+	
+	i++;
+}
+
+printf("Toplam bulunan harf sayisi:%d\n",sayac);
+
+j=0;
+
+while(pozisyonlar[j])
+{
+	
+printf("Harfin pozisyon sirasi:%d\n",pozisyonlar[j]);
+j++;	
+
+}
+
+
+return 31;
+}
